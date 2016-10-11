@@ -12,11 +12,16 @@ public class CalculatorTest{
 
 	@Test
 	public void testOneNumber(){
-		assertEquals(5, Calculator.add("5"));
+		assertEquals(1, Calculator.add("1"));
 	}
 
 	@Test
 	public void testTwoNumber(){
 		assertEquals(3, Calculator.add("1,2"));
+	}
+	
+	@Test
+	public void testMultibleNumber(){
+		assertEquals(15, Calculator.add("1,2,3,4,5"));
 	}
 }
