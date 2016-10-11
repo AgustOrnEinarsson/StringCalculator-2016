@@ -24,4 +24,61 @@ public class CalculatorTest{
 	public void testMultibleNumber(){
 		assertEquals(15, Calculator.add("1,2,3,4,5"));
 	}
+	@Test
+	public void testNewlineSplitNumber(){
+		assertEquals(6, Calculator.add("1\n2,3"));
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -7,6 +7,7 @@ public class Calculator{
 			return 0;
 		else if(s.contains(",")){
 			String [] numbers = s.split(",");
+			int sum = 0;
 			for (int i = 0; i < numbers.length; i++){
 				sum += getInt(numbers[i]); 
 			}
