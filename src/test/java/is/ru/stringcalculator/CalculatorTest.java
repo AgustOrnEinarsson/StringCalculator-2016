@@ -2,6 +2,8 @@ package is.ru.stringcalculator;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.Rule;
 
 public class CalculatorTest{
 	
@@ -27,6 +29,10 @@ public class CalculatorTest{
 	@Test
 	public void testNewlineSplitNumber(){
 		assertEquals(6, Calculator.add("1\n2,3"));
+	}
+	@Test(expected=IllegalArgumentException.class)
+	public void throwsIllegalArgumentException(){
+		Calculator.add("0,-1");
 	}
 
 }
