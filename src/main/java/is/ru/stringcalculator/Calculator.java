@@ -7,8 +7,12 @@ public class Calculator{
 			return 0;
 		else if(s.contains(","){
 			String [] numbers = s.split(",");
-			return Integer.toInt(numbers[0]) + Integer.toInt(numbers[1])
+			return getInt(numbers[0]) + getInt(numbers[1])
 		}
 		return 5;
+	}
+
+	public int getInt(String s){
+		return Integer.toInt(s);
 	}
 }
