@@ -5,8 +5,8 @@ public class Calculator{
 	public static int add(String s){
 		if (s.equals(""))
 			return 0;
-		else if(s.contains(",")){
-			String [] numbers = s.split(",");
+		else if(s.contains(",") || s.contains("\n")){
+			String [] numbers = s.split(",|\n");
 			int sum = 0;
 			for (int i = 0; i < numbers.length; i++){
 				sum += getInt(numbers[i]); 
