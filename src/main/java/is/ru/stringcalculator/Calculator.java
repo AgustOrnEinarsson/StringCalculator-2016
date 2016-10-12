@@ -9,10 +9,7 @@ public class Calculator{
 		String delimitter = delimitter(s); 
 		s = parseString(s);
 		String [] numbers = s.split(delimitter);
-			
-		int sum = 0;
-		
-		//get all integers into a vector
+
 		int[] n = convertToInt(s,delimitter);
 		checkInput(n);
 		return sum(n);			
@@ -41,20 +38,6 @@ public class Calculator{
 		return s;
 	}
 
-	private static int getSum(String s){
-		if (s.equals(""))
-			return 0;
-		String [] numbers = s.split(",|\n");
-			int sum = 0;
-			for (int i = 0; i < numbers.length; i++){
-				checkInput(getInt(numbers[i]));
-				if(getInt(numbers[i]) > 1000)
-					continue;
-				sum += getInt(numbers[i]); 
-			}
-		return sum;
-	}
-	
 	private static int[] convertToInt(String s, String delimitter){
 
 		String [] numbers = s.split(delimitter);
@@ -107,5 +90,18 @@ public class Calculator{
 		return Integer.parseInt(s);
 	}
 
+	private static int getSum(String s){
+		if (s.equals(""))
+			return 0;
+		String [] numbers = s.split(",|\n");
+			int sum = 0;
+			for (int i = 0; i < numbers.length; i++){
+				checkInput(getInt(numbers[i]));
+				if(getInt(numbers[i]) > 1000)
+					continue;
+				sum += getInt(numbers[i]); 
+			}
+		return sum;
+	}
 	
 }
