@@ -10,6 +10,23 @@ public class Calculator{
 		int[] n = convertToInt(s);
 		checkInput(n);
 		
+		
+		if(s.contains(",") || s.contains("\n")){
+			String [] numbers = s.split(",|\n");
+
+			int sum = 0;
+
+			for (int i = 0; i < numbers.length; i++){
+
+				checkInput(getInt(numbers[i]));
+				if(getInt(numbers[i]) > 1000)
+					continue;
+				sum += getInt(numbers[i]); 
+			}
+
+		return sum;
+		}
+
 		if(s.contains(",") || s.contains("\n")){
 			return getSum(s);
 		}
