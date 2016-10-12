@@ -3,27 +3,29 @@ package is.ru.stringcalculator;
 public class Calculator{
 	
 	public static int add(String s){
+
 		if (s.equals(""))
 			return 0;
+		int[] n = convertToInt(s);
+		String nS = "";
+		for (int i = 0; i< n.length; i++){
+			if(n[i] < 0)
+			   nS += n + ",";		
+		}
+		
+		if(!nS.isEmpty()){
+			String errorM = "Negatives not allowed: -1,-5,-3";
+			throw new IllegalArgumentException(errorM);
+		}
+		
 		else if(s.contains(",") || s.contains("\n")){
 			return getSum(s);
 		}
-		int[] n = convertToInt(s);
 		
-		string nS;
-		for (int i = 0; i< n.length; i++){
-			if(n < 0)
-			   nS += n + ",";		
-		}
-		if(!nS.isEmpty()){
-			throw new IllegalArgumentException("Negatives not allowed: " + nS);
-		}
-				
 		return 1;
-	}
-
-		
 	
+}
+
 	private static int getSum(String s){
 		String [] numbers = s.split(",|\n");
 			int sum = 0;
@@ -45,7 +47,8 @@ public class Calculator{
 	
 	private static void checkInput(int n){
 		if(n < 0){
-			throw new IllegalArgumentException("Negatives not allowed: " + n);
+			String errorM = "Negatives not allowed: " + Integer.toString(n);
+			throw new IllegalArgumentException(errorM);
 		}
 	}
 	
