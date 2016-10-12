@@ -6,19 +6,11 @@ public class Calculator{
 
 		if (s.equals(""))
 			return 0;
+		//get all integers into a vector
 		int[] n = convertToInt(s);
-		String nS = "";
-		for (int i = 0; i< n.length; i++){
-			if(n[i] < 0)
-			   nS += n + ",";		
-		}
+		checkInput(n);
 		
-		if(!nS.isEmpty()){
-			String errorM = "Negatives not allowed: -1,-5,-3";
-			throw new IllegalArgumentException(errorM);
-		}
-		
-		else if(s.contains(",") || s.contains("\n")){
+		if(s.contains(",") || s.contains("\n")){
 			return getSum(s);
 		}
 		
@@ -45,6 +37,20 @@ public class Calculator{
 		return n;
 	}	
 	
+	private static void checkInput(int[] n){
+		String s = "";
+		for (int i = 0; i< n.length; i++){
+			if(n[i] < 0)
+			   s += n + ",";		
+		}
+		
+		if(!s.isEmpty()){
+			//Remove last comma
+			s = s.substring(0, s.length() - 1);
+			String errorM = "Negatives not allowed: " + s;
+			throw new IllegalArgumentException(errorM);
+		}
+	}
 	private static void checkInput(int n){
 		if(n < 0){
 			String errorM = "Negatives not allowed: " + Integer.toString(n);
