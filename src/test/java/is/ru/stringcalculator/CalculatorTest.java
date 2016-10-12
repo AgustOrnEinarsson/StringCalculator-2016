@@ -34,7 +34,7 @@ public class CalculatorTest{
 	public void throwsIllegalArgumentException(){
 		Calculator.add("0,-1");
 	}
-/*
+
 	@Test(expected=IllegalArgumentException.class)
 	public void throwsIllegalArgumentExceptionComparaMessages() throws Exception {
 		try {
@@ -45,7 +45,19 @@ public class CalculatorTest{
 			//throw e;
 		}
 	}
-*/
+
+@Test(expected=IllegalArgumentException.class)
+	public void throwsIllegalArgumentExceptionComparaMessagesMultibleNegatives() throws Exception {
+		try {
+			Calculator.add("0,-1,-5,-3,");
+		} catch (IllegalArgumentException e){
+			assertEquals("Negatives not allowed: -1,-5,-3"
+					, e.getMessage());
+			//throw e;
+		}
+	}
+
+
 }
 
 
