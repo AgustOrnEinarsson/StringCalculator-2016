@@ -6,7 +6,14 @@ public class Calculator{
 		if (s.equals(""))
 			return 0;
 		else if(s.contains(",") || s.contains("\n")){
-			String [] numbers = s.split(",|\n");
+			return getSum(s);
+		}
+		return 1;
+	}
+
+	
+	private static int getSum(String s){
+		String [] numbers = s.split(",|\n");
 			int sum = 0;
 			for (int i = 0; i < numbers.length; i++){
 				if(getInt(numbers[i]) < 0){
@@ -14,11 +21,9 @@ public class Calculator{
 				}
 				sum += getInt(numbers[i]); 
 			}
-			return sum;
-		}
-		return 1;
-	}
-	
+		return sum;
+	}	
+
 	private static int getInt(String s){
 		return Integer.parseInt(s);
 	}
