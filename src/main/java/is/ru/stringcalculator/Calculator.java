@@ -6,10 +6,32 @@ public class Calculator{
 
 		if (s.equals(""))
 			return 0;
+		
+		String delimiter = ",|\n";
+		if (s.startsWith("//")){
+			delimiter += "|" + s.substring(2, 3);
+			s = s.substring(4,  s.length());
+		
+			String [] numbers = s.split(delimiter);
+
+			int sum = 0;
+
+			for (int i = 0; i < numbers.length; i++){
+
+				checkInput(getInt(numbers[i]));
+				if(getInt(numbers[i]) > 1000)
+					continue;
+
+				sum += getInt(numbers[i]); 
+
+			}
+
+		return sum;		
+		}
 		//get all integers into a vector
 		int[] n = convertToInt(s);
 		checkInput(n);
-
+			
 		if(s.contains(",") || s.contains("\n")){
 			return getSum(s);
 		}
@@ -19,6 +41,8 @@ public class Calculator{
 }
 
 	private static int getSum(String s){
+		if (s.equals(""))
+			return 0;
 		String [] numbers = s.split(",|\n");
 			int sum = 0;
 			for (int i = 0; i < numbers.length; i++){
