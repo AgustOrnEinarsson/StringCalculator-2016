@@ -44,10 +44,14 @@ public class CalculatorTest{
 
 	@Test(expected=IllegalArgumentException.class)
 	public void throwsIllegalArgumentExceptionComparaMessagesMultibleNegatives() throws Exception {
-		assertEquals("Negatives not allowed: -1,-5,-3" ,Calculator.add("0,-1,-5,-3"));
+		assertEquals("Negatives not allowed: -4 -5" ,Calculator.add("2,-4,3,-5"));
 
 	}
-
+	
+	@Test
+	public void testLargeNumber(){
+		assertEquals(2, Calculator.add("1001,2"));
+	}
 
 }
 
